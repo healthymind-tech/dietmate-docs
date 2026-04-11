@@ -4,7 +4,6 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { BookOpen, Menu as MenuIcon, X } from 'lucide-react'
-import PagefindSearch from './PagefindSearch'
 
 export interface NavItem {
   id: string
@@ -38,7 +37,6 @@ export default function DocsSidebar({ categories }: DocsSidebarProps) {
             <p className="text-[11px] text-slate-400">公開文件庫</p>
           </div>
         </Link>
-        <PagefindSearch />
       </div>
 
       {/* Navigation */}

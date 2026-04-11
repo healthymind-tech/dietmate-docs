@@ -1,5 +1,7 @@
 import './globals.css'
 import DocsSidebar, { type NavCategory } from '../components/DocsSidebar'
+import DocsTopbar from '../components/DocsTopbar'
+import SearchModal from '../components/SearchModal'
 import type { ReactNode } from 'react'
 
 export const metadata = {
@@ -38,9 +40,13 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       <body>
         <div className="flex h-screen overflow-hidden bg-slate-50">
           <DocsSidebar categories={categories} />
-          <main className="flex-1 overflow-y-auto pt-14 lg:pt-0">
-            {children}
-          </main>
+          <div className="flex flex-col flex-1 overflow-hidden">
+            <DocsTopbar />
+            <main className="flex-1 overflow-y-auto">
+              {children}
+            </main>
+          </div>
+          <SearchModal />
         </div>
       </body>
     </html>
