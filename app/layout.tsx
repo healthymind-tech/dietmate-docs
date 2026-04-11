@@ -38,10 +38,10 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   return (
     <html lang="zh-TW">
       <body>
-        <div className="flex h-screen overflow-hidden bg-slate-50">
-          <DocsSidebar categories={categories} />
-          <div className="flex flex-col flex-1 overflow-hidden">
-            <DocsTopbar />
+        <div className="flex flex-col h-screen overflow-hidden bg-slate-50">
+          <DocsTopbar />
+          <div className="flex flex-1 overflow-hidden">
+            <DocsSidebar categories={categories} />
             <main className="flex-1 overflow-y-auto">
               {children}
             </main>

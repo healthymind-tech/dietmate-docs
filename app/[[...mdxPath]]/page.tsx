@@ -63,8 +63,8 @@ export default async function Page(props: {
       )}
 
       {/* Content */}
-      <div className="flex gap-8 px-8 py-10 flex-1">
-        <div className="flex-1 min-w-0 max-w-3xl">
+      <div className="flex gap-8 px-8 py-10 flex-1 justify-center">
+        <div className="min-w-0 w-full max-w-3xl">
           {/* Page header */}
           {current && (
             <header className="mb-8">
