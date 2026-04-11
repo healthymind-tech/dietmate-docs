@@ -1,5 +1,5 @@
-import { useMDXComponents as getDocsMDXComponents } from 'nextra-theme-docs'
+import { useMDXComponents as nextraUseMDXComponents } from 'nextra/mdx-components'
 
 export function useMDXComponents(components = {}) {
-  return getDocsMDXComponents(components)
+  return nextraUseMDXComponents(components)
 }
