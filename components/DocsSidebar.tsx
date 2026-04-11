@@ -3,7 +3,8 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { BookOpen, Menu as MenuIcon, X, Search } from 'lucide-react'
+import { BookOpen, Menu as MenuIcon, X } from 'lucide-react'
+import PagefindSearch from './PagefindSearch'
 
 export interface NavItem {
   id: string
@@ -22,15 +23,7 @@ interface DocsSidebarProps {
 
 export default function DocsSidebar({ categories }: DocsSidebarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [searchQuery, setSearchQuery] = useState('')
   const pathname = usePathname()
-
-  const filteredCategories = categories.map((cat) => ({
-    ...cat,
-    items: cat.items.filter((item) =>
-      !searchQuery.trim() || item.title.toLowerCase().includes(searchQuery.toLowerCase())
-    ),
-  })).filter((cat) => cat.items.length > 0)
 
   const sidebarContent = (
     <div className="flex flex-col h-full bg-white">
@@ -45,22 +38,12 @@ export default function DocsSidebar({ categories }: DocsSidebarProps) {
             <p className="text-[11px] text-slate-400">公開文件庫</p>
           </div>
         </Link>
-        {/* Search input - Pagefind 在 Task 5 接上 */}
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
-          <input
-            id="docs-search-input"
-            className="w-full pl-9 pr-3 py-2 bg-slate-100 border border-transparent focus:border-emerald-500 focus:bg-white focus:outline-none rounded-lg text-sm transition-all placeholder:text-slate-400"
-            placeholder="搜尋說明文件..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </div>
+        <PagefindSearch />
       </div>
 
       {/* Navigation */}
       <nav className="flex-1 overflow-y-auto p-3">
-        {filteredCategories.map((cat) => (
+        {categories.map((cat) => (
           <div key={cat.title} className="mb-4">
             <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">
               {cat.title}
@@ -86,12 +69,6 @@ export default function DocsSidebar({ categories }: DocsSidebarProps) {
             })}
           </div>
         ))}
-        {filteredCategories.length === 0 && (
-          <div className="text-center py-8">
-            <Search className="h-8 w-8 text-slate-300 mx-auto mb-2" />
-            <p className="text-slate-400 text-xs">找不到相關結果</p>
-          </div>
-        )}
       </nav>
 
       {/* Footer */}
