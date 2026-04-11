@@ -1,7 +1,10 @@
 import { generateStaticParamsFor, importPage } from 'nextra/pages'
 import DocsTOC from '../../components/DocsTOC'
+import PageCopyButtons from '../../components/PageCopyButtons'
 import Link from 'next/link'
 import { ChevronRight } from 'lucide-react'
+import fs from 'fs'
+import path from 'path'
 
 export const generateStaticParams = generateStaticParamsFor('mdxPath')
 
@@ -41,6 +44,11 @@ export default async function Page(props: {
   const meta = metaRaw.default as Record<string, string | { type: string; title: string }>
   const pages = buildPageList(meta)
 
+  // Read raw MDX source for copy buttons
+  const mdxFileName = (params.mdxPath?.[0] ?? 'index') + '.mdx'
+  const mdxFilePath = path.join(process.cwd(), 'content', mdxFileName)
+  const mdxSource = fs.existsSync(mdxFilePath) ? fs.readFileSync(mdxFilePath, 'utf-8') : ''
+
   const slug = params.mdxPath?.[0] ?? 'index'
   const currentIdx = pages.findIndex((p) => p.id === slug)
   const current = pages[currentIdx]
@@ -71,9 +79,12 @@ export default async function Page(props: {
               <p className="text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-1">
                 {current.category}
               </p>
-              <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight leading-tight mb-2">
-                {(metadata as any)?.title ?? current.title}
-              </h1>
+              <div className="flex items-start justify-between gap-4">
+                <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight leading-tight mb-2">
+                  {(metadata as any)?.title ?? current.title}
+                </h1>
+                {mdxSource && <PageCopyButtons mdxSource={mdxSource} />}
+              </div>
               {(metadata as any)?.description && (
                 <p className="text-base text-slate-600 leading-relaxed">
                   {(metadata as any).description}
