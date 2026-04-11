@@ -1,0 +1,20 @@
+{
+  "index": "說明中心",
+  "-- 基礎入門": { "type": "separator", "title": "基礎入門" },
+  "login": "登入工作台",
+  "dashboard": "工作台總覽",
+  "-- 核心功能": { "type": "separator", "title": "核心功能" },
+  "my-patients": "查看我的病患",
+  "pending-review": "審核飲食分析",
+  "patient-messages": "與病患對話",
+  "-- 進階功能": { "type": "separator", "title": "進階功能" },
+  "health-stats": "病患健康數據",
+  "health-goals": "健康目標管理",
+  "nutrition-targets": "每日熱量目標",
+  "rich-menu": "LINE Rich Menu",
+  "patient-groups": "患者群組標籤",
+  "settings": "個人設定",
+  "-- 報表匯出": { "type": "separator", "title": "報表匯出" },
+  "weekly-report-export": "飲食分析週報",
+  "health-data-export": "健康數據匯出"
+}
