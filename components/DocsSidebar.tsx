@@ -3,7 +3,29 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu as MenuIcon, X } from 'lucide-react'
+import {
+  Menu as MenuIcon, X,
+  LogIn, Stethoscope, ClipboardCheck, MessageSquare,
+  BarChart3, Target, Flame, Menu, Tags,
+  FileSpreadsheet, FileText, Settings,
+  type LucideIcon,
+} from 'lucide-react'
+
+const ICON_MAP: Record<string, LucideIcon> = {
+  'login':                LogIn,
+  'dashboard':            Stethoscope,
+  'my-patients':          Stethoscope,
+  'pending-review':       ClipboardCheck,
+  'patient-messages':     MessageSquare,
+  'health-stats':         BarChart3,
+  'health-goals':         Target,
+  'nutrition-targets':    Flame,
+  'rich-menu':            Menu,
+  'patient-groups':       Tags,
+  'weekly-report-export': FileSpreadsheet,
+  'health-data-export':   FileText,
+  'settings':             Settings,
+}
 
 export interface NavItem {
   id: string
@@ -35,6 +57,7 @@ export default function DocsSidebar({ categories }: DocsSidebarProps) {
             </p>
             {cat.items.map((item) => {
               const isActive = pathname === item.href || pathname.endsWith(item.href)
+              const Icon = ICON_MAP[item.id]
               return (
                 <Link
                   key={item.id}
@@ -46,6 +69,9 @@ export default function DocsSidebar({ categories }: DocsSidebarProps) {
                       : 'text-slate-600 hover:bg-slate-50 border border-transparent'
                   }`}
                 >
+                  {Icon && (
+                    <Icon className={`h-[18px] w-[18px] flex-shrink-0 ${isActive ? 'text-emerald-600' : 'text-slate-400'}`} />
+                  )}
                   <span className={`text-[15px] leading-snug ${isActive ? 'font-semibold' : 'font-medium'}`}>
                     {item.title}
                   </span>
