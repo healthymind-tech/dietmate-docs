@@ -8,5 +8,5 @@ export default withNextra({
   output: 'export',
   trailingSlash: true,
   images: { unoptimized: true },
-  basePath: '/zh',
+
 })
