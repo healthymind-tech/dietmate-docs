@@ -65,12 +65,17 @@ export default async function Page(props: {
       {/* Sticky breadcrumb */}
       {current && (
         <div className="sticky top-0 z-10 bg-slate-50/90 backdrop-blur-md px-8 py-3 border-b border-slate-200/50">
-          <div className="max-w-3xl mx-auto flex items-center gap-1.5 text-xs text-slate-500">
-            <Link href="/" className="hover:text-emerald-600 transition-colors">說明中心</Link>
-            <ChevronRight className="h-3 w-3 text-slate-300" />
-            <span className="text-slate-400">{current.category}</span>
-            <ChevronRight className="h-3 w-3 text-slate-300" />
-            <span className="text-slate-900 font-medium">{current.title}</span>
+          {/* Mirror the content flex layout so the left edge aligns exactly */}
+          <div className="flex gap-8 justify-center">
+            <div className="min-w-0 w-full max-w-3xl flex items-center gap-1.5 text-sm text-slate-500">
+              <Link href="/" className="hover:text-emerald-600 transition-colors">說明中心</Link>
+              <ChevronRight className="h-3 w-3 text-slate-300" />
+              <span className="text-slate-400">{current.category}</span>
+              <ChevronRight className="h-3 w-3 text-slate-300" />
+              <span className="text-slate-900 font-medium">{current.title}</span>
+            </div>
+            {/* TOC-width spacer — only at xl when TOC is visible */}
+            <div className="w-56 flex-shrink-0 hidden xl:block" />
           </div>
         </div>
       )}

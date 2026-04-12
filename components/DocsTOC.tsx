@@ -63,6 +63,19 @@ function FeedbackWidget() {
 
   useEffect(() => { setPicked(null) }, [pathname])
 
+  async function handlePick(key: string) {
+    setPicked(key)
+    try {
+      await fetch('/api/feedback', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ page: pathname, reaction: key }),
+      })
+    } catch {
+      // fire-and-forget — UI already updated, silently ignore network errors
+    }
+  }
+
   return (
     <div className="mt-8 pt-6 border-t border-slate-100">
       <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-3">
@@ -72,11 +85,14 @@ function FeedbackWidget() {
         {REACTIONS.map(({ key, Face, label }) => (
           <button
             key={key}
-            onClick={() => setPicked(key)}
+            onClick={() => handlePick(key)}
+            disabled={picked !== null}
             title={label}
-            className={`flex flex-col items-center gap-1.5 px-3 py-2 rounded-xl border transition-all ${
+            className={`flex flex-col items-center gap-1.5 px-3 py-2 rounded-xl border transition-all disabled:cursor-default ${
               picked === key
                 ? 'border-emerald-300 bg-emerald-50 text-emerald-600'
+                : picked !== null
+                ? 'border-slate-100 text-slate-300'
                 : 'border-slate-200 text-slate-400 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-600'
             }`}
           >
