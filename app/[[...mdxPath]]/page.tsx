@@ -38,7 +38,12 @@ export default async function Page(props: {
 }) {
   const params = await props.params
   const result = await importPage(params.mdxPath)
-  const { default: MDXContent, toc, metadata } = result
+  const { default: MDXContent, toc: rawToc, metadata } = result
+
+  const pageTitle = (metadata as any)?.title ?? ''
+  const toc = pageTitle
+    ? [{ id: 'page-title', value: pageTitle, depth: 1 }, ...rawToc]
+    : rawToc
 
   const metaRaw = await import('../../content/_meta.json')
   const meta = metaRaw.default as Record<string, string | { type: string; title: string }>
@@ -80,7 +85,7 @@ export default async function Page(props: {
                 {current.category}
               </p>
               <div className="flex items-start justify-between gap-4">
-                <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight leading-tight mb-2">
+                <h1 id="page-title" className="text-2xl font-extrabold text-slate-900 tracking-tight leading-tight mb-2">
                   {(metadata as any)?.title ?? current.title}
                 </h1>
                 {mdxSource && <PageCopyButtons mdxSource={mdxSource} />}

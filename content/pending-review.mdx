@@ -3,7 +3,6 @@ title: 審核飲食分析
 description: 學習如何審核 AI 飲食分析結果，並撰寫專業的飲食建議。
 ---
 
-# 審核飲食分析
 
 飲食分析審核是營養師工作台最核心的工作流程。當病患透過 LINE 或網頁上傳餐點照片後，系統 AI 會自動辨識食物並估算營養成分，接著進入待審核狀態等待你的確認與補充。每筆分析都附有優先級標籤（HIGH / MEDIUM / LOW），協助你決定處理順序。審核時你可以修正 AI 估算有誤的數值，並撰寫專業的飲食建議，審核送出後病患會透過 LINE 收到通知。
 
@@ -24,22 +23,52 @@ description: 學習如何審核 AI 飲食分析結果，並撰寫專業的飲食
 
 ## 常見問題
 
-### HIGH / MEDIUM / LOW 優先級是如何決定的？
+
+<details className="faq-item">
+<summary className="faq-summary">HIGH / MEDIUM / LOW 優先級是如何決定的？<span className="faq-chevron" /></summary>
+<div className="faq-body">
 
 系統根據病患健康狀況（如是否患有糖尿病、高血壓等高風險疾病）以及分析等待時間自動評估優先級。健康風險高的病患或等待超過一定時間的分析，會被標示為 HIGH。
 
-### 送出審核後，病患何時會收到通知？
+</div>
+</details>
+
+
+<details className="faq-item">
+<summary className="faq-summary">送出審核後，病患何時會收到通知？<span className="faq-chevron" /></summary>
+<div className="faq-body">
 
 審核送出後，系統會立即觸發 LINE 推播通知，告知病患分析結果已完成，可查看審核意見。通知時間通常在數秒內送達。
 
-### 審核後還能修改嗎？
+</div>
+</details>
+
+
+<details className="faq-item">
+<summary className="faq-summary">審核後還能修改嗎？<span className="faq-chevron" /></summary>
+<div className="faq-body">
 
 可以在「審核歷史」中找到已審核的記錄，點擊查看詳情。是否支援重新修改視系統版本設定而定，若無法修改，可透過「病患訊息」直接向病患發送補充說明。
 
-### AI 分析的結果準確嗎？需要每次都修正嗎？
+</div>
+</details>
+
+
+<details className="faq-item">
+<summary className="faq-summary">AI 分析的結果準確嗎？需要每次都修正嗎？<span className="faq-chevron" /></summary>
+<div className="faq-body">
 
 AI 對常見台灣料理的辨識準確度較高，但對複合料理（如便當、湯麵）或份量估算仍可能有誤差。建議每次審核時快速確認主要食物與熱量是否合理，若偏差明顯再進行修正。
 
-### 手搖飲的熱量怎麼確保準確？病患一定要填備註嗎？
+</div>
+</details>
+
+
+<details className="faq-item">
+<summary className="faq-summary">手搖飲的熱量怎麼確保準確？病患一定要填備註嗎？<span className="faq-chevron" /></summary>
+<div className="faq-body">
 
 AI 會優先讀取病患在備註中填寫的糖度描述（如「半糖」「7分糖」），若沒有備註則會嘗試辨識照片中杯身的標籤文字。若兩者都無法取得，系統會以全糖為預設值估算。建議提醒病患上傳手搖飲時在備註欄填寫糖度，以提升估算準確性。
+
+</div>
+</details>

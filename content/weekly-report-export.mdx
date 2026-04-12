@@ -3,7 +3,6 @@ title: 飲食分析週報匯出
 description: 如何匯出病患的飲食分析週報為 Excel 或 PDF 格式。
 ---
 
-# 飲食分析週報匯出
 
 飲食分析週報整合了病患在一週內的所有餐點記錄、營養攝取數據與審核結果，以報表形式呈現。你可以依病患與週次查看週報內容，並匯出為 Excel（含摘要與每日明細兩張工作表）或 PDF（含餐點照片的完整報告）。週報適合用於回診時與病患討論飲食狀況，或歸檔留存作為長期追蹤依據。
 
@@ -20,7 +19,10 @@ description: 如何匯出病患的飲食分析週報為 Excel 或 PDF 格式。
 
 ## 常見問題
 
-### Excel 與 PDF 有什麼差異？該選哪個？
+
+<details className="faq-item">
+<summary className="faq-summary">Excel 與 PDF 有什麼差異？該選哪個？<span className="faq-chevron" /></summary>
+<div className="faq-body">
 
 **Excel** 適合進一步編輯、計算或匯入其他系統，包含兩張工作表：
 - 摘要表：總餐數、平均熱量、遵循率、營養素分布、審核統計
@@ -28,10 +30,25 @@ description: 如何匯出病患的飲食分析週報為 Excel 或 PDF 格式。
 
 **PDF** 適合列印或直接分享給病患，包含排版好的表格與餐點照片，格式為 A4 紙張。
 
-### PDF 匯出很慢或失敗怎麼辦？
+</div>
+</details>
+
+
+<details className="faq-item">
+<summary className="faq-summary">PDF 匯出很慢或失敗怎麼辦？<span className="faq-chevron" /></summary>
+<div className="faq-body">
 
 PDF 需要在伺服器端渲染頁面並嵌入餐點照片，若該週餐點數量多（例如超過 20 筆），生成時間可能需 10-15 秒。若持續失敗，可能是伺服器資源不足，請稍後再試或改用 Excel 匯出。
 
-### 週報卡片上的「遵循率」和「熱量趨勢」是怎麼算的？
+</div>
+</details>
+
+
+<details className="faq-item">
+<summary className="faq-summary">週報卡片上的「遵循率」和「熱量趨勢」是怎麼算的？<span className="faq-chevron" /></summary>
+<div className="faq-body">
 
 遵循率反映該週已審核通過的餐次佔總餐次的比例。熱量趨勢以箭頭呈現：向上代表該週平均熱量比前一週增加，向下代表減少，橫向代表穩定。趨勢僅供快速參考，詳細數據請查看週報內容。
+
+</div>
+</details>

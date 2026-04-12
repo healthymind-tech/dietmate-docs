@@ -3,7 +3,6 @@ title: 健康數據匯出
 description: 如何匯出病患的健康數據記錄為 Excel 或 PDF 格式。
 ---
 
-# 健康數據匯出
 
 健康數據匯出功能可將病患的體重、血壓、血糖、身高等歷史健康記錄匯出為 Excel 或 PDF 檔案。支援依指標類型與時間區間篩選，匯出結果包含量測時間、數值、健康狀態分級（正常/偏高/偏低）、量測情境（空腹/餐後等）與備註。匯出的報表適合用於回診報告、跨科會診參考或病患自我管理。
 
@@ -19,18 +18,42 @@ description: 如何匯出病患的健康數據記錄為 Excel 或 PDF 格式。
 
 ## 常見問題
 
-### 匯出的數據量有上限嗎？
+
+<details className="faq-item">
+<summary className="faq-summary">匯出的數據量有上限嗎？<span className="faq-chevron" /></summary>
+<div className="faq-body">
 
 單次匯出最多 1,000 筆記錄，時間跨度最長 365 天。若未指定時間範圍，預設匯出近 90 天的資料。如需更長時間的數據，請分次匯出不同時間區間。
 
-### 匯出的 Excel 包含哪些欄位？
+</div>
+</details>
+
+
+<details className="faq-item">
+<summary className="faq-summary">匯出的 Excel 包含哪些欄位？<span className="faq-chevron" /></summary>
+<div className="faq-body">
 
 包含：記錄時間、指標類型（體重/血壓/血糖等）、量測數值、單位、健康狀態分級、量測情境（空腹/餐後/運動前等）、備註。表頭有粗體與背景色，方便閱讀。
 
-### PDF 報告有色彩標示嗎？
+</div>
+</details>
+
+
+<details className="faq-item">
+<summary className="faq-summary">PDF 報告有色彩標示嗎？<span className="faq-chevron" /></summary>
+<div className="faq-body">
 
 有。PDF 報告中每筆記錄會依健康狀態以色彩標示：綠色代表指標在正常範圍、紅色代表偏高、橘色代表偏低，方便快速辨識異常數值。報告底部附有記錄筆數與生成時間。
 
-### 可以只匯出單一指標嗎？
+</div>
+</details>
+
+
+<details className="faq-item">
+<summary className="faq-summary">可以只匯出單一指標嗎？<span className="faq-chevron" /></summary>
+<div className="faq-body">
 
 可以。在匯出前先用「指標篩選」下拉選單選擇特定指標（如只選「血糖」），再點擊匯出按鈕，就只會匯出該指標的記錄。
+
+</div>
+</details>

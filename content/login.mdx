@@ -3,7 +3,6 @@ title: 登入工作台
 description: 學習如何使用營養師帳號登入 DietMate 工作台。
 ---
 
-# 登入工作台
 
 營養師工作台是獨立於病患端與平台管理後台的專屬介面，需以營養師帳號登入才能存取。系統採用 JWT 憑證進行身分驗證，登入後憑證會存放在瀏覽器中，一段時間未操作後會自動失效，屆時需重新登入。為確保病患資料安全，請勿在公用裝置上保持登入狀態。
 
@@ -18,14 +17,32 @@ description: 學習如何使用營養師帳號登入 DietMate 工作台。
 
 ## 常見問題
 
-### 登入後看到「無效的認證令牌」或「請先登入」怎麼辦？
+
+<details className="faq-item">
+<summary className="faq-summary">登入後看到「無效的認證令牌」或「請先登入」怎麼辦？<span className="faq-chevron" /></summary>
+<div className="faq-body">
 
 可能是上次的登入憑證已過期或 Cookie 損壞，請清除瀏覽器 Cookie 後重新登入。若問題持續，請聯繫管理員確認帳號狀態。
 
-### 可以同時在兩個裝置或瀏覽器上登入嗎？
+</div>
+</details>
+
+
+<details className="faq-item">
+<summary className="faq-summary">可以同時在兩個裝置或瀏覽器上登入嗎？<span className="faq-chevron" /></summary>
+<div className="faq-body">
 
 可以，系統允許多裝置同時登入。但建議避免在同一時間於不同裝置操作相同功能，以免發生資料衝突或覆蓋。
 
-### 多久沒操作會自動登出？
+</div>
+</details>
+
+
+<details className="faq-item">
+<summary className="faq-summary">多久沒操作會自動登出？<span className="faq-chevron" /></summary>
+<div className="faq-body">
 
 系統的 JWT 憑證有固定有效期限，到期後需重新登入。建議完成工作後手動點擊側邊欄底部的「登出」以確保安全。
+
+</div>
+</details>

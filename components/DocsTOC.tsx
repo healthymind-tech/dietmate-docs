@@ -129,10 +129,12 @@ export default function DocsTOC({ toc }: DocsTOCProps) {
               <a
                 href={`#${item.id}`}
                 className={`block text-xs leading-relaxed py-0.5 transition-colors ${
-                  item.depth === 3 ? 'pl-3' : ''
+                  item.depth === 1 ? 'font-semibold' : item.depth === 3 ? 'pl-3' : ''
                 } ${
                   activeId === item.id
                     ? 'text-emerald-600 font-medium'
+                    : item.depth === 1
+                    ? 'text-slate-700 hover:text-slate-900'
                     : 'text-slate-500 hover:text-slate-800'
                 }`}
               >
