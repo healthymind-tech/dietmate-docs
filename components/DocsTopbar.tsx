@@ -24,12 +24,9 @@ export default function DocsTopbar() {
         {/* Logo — fixed width to balance right side */}
         <Link href="/" className="flex items-center gap-3 min-w-0 w-56 flex-shrink-0">
           <img
-            src="/logo.svg"
+            src="/logo.jpg"
             alt="療心智能"
             className="h-8 w-auto object-contain object-left"
-            onError={(e) => {
-              (e.target as HTMLImageElement).style.display = 'none'
-            }}
           />
           <span className="text-sm font-semibold text-slate-700 hidden sm:block whitespace-nowrap">
             教學文件中心
