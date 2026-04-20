@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agentskills.io/schema/v0.2.0/index.json",
+  "skills": [
+    {
+      "name": "search_docs",
+      "type": "tool",
+      "description": "Search DietMate documentation pages by keyword. Returns matching pages with title, URL, and section.",
+      "url": "https://docs.dietmate.studio/.well-known/agent-skills/search-docs.md",
+      "sha256": "64a482db7c891eb0754ed9447960f1e2375a473ab40ab7a97745a38261f92e39"
+    },
+    {
+      "name": "list_pages",
+      "type": "tool",
+      "description": "Returns all available DietMate documentation pages with their titles, URLs, and sections.",
+      "url": "https://docs.dietmate.studio/.well-known/agent-skills/list-pages.md",
+      "sha256": "d93bd373041f69295bb636037d1cbe7a94774def1be3ae3d39695c63cbc1b72f"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "resource": "https://docs.dietmate.studio",
+  "authorization_servers": ["https://docs.dietmate.studio"],
+  "scopes_supported": ["openid"],
+  "bearer_methods_supported": ["header"]
+}

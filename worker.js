@@ -123,10 +123,16 @@ const accept = request.headers.get('Accept') ?? ''
       : request
     const response = await env.ASSETS.fetch(assetRequest)
 
-    // Fix Content-Type for /.well-known/api-catalog (must be application/linkset+json)
-    if (url.pathname === '/.well-known/api-catalog' && response.ok) {
+    // Fix Content-Type for well-known JSON endpoints
+    const jsonContentTypeMap = {
+      '/.well-known/api-catalog': 'application/linkset+json',
+      '/.well-known/oauth-protected-resource': 'application/json',
+      '/.well-known/agent-skills/index.json': 'application/json',
+    }
+    const overrideContentType = jsonContentTypeMap[url.pathname]
+    if (overrideContentType && response.ok) {
       const headers = new Headers(response.headers)
-      headers.set('Content-Type', 'application/linkset+json')
+      headers.set('Content-Type', overrideContentType)
       return new Response(response.body, { status: response.status, headers })
     }
 
