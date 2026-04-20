@@ -148,6 +148,7 @@ export default {
       const headers = new Headers(response.headers)
       headers.append('Link', '</sitemap.xml>; rel="sitemap"')
       headers.append('Link', '<https://docs.dietmate.studio/>; rel="service-doc"')
+      headers.append('Link', '</.well-known/api-catalog>; rel="api-catalog"')
       return new Response(response.body, { status: response.status, headers })
     }
 
