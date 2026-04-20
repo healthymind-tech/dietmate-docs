@@ -114,8 +114,14 @@ export default {
       })
     }
 
-    // ── Static assets fallthrough ─────────────────────────────
-    const response = await env.ASSETS.fetch(request)
+const accept = request.headers.get('Accept') ?? ''
+    const wantsMarkdown = accept.includes('text/markdown')
+
+    // Always fetch assets with a neutral Accept header so the static layer returns HTML
+    const assetRequest = wantsMarkdown
+      ? new Request(request.url, { method: request.method, headers: (() => { const h = new Headers(request.headers); h.set('Accept', 'text/html'); return h })() })
+      : request
+    const response = await env.ASSETS.fetch(assetRequest)
 
     // Fix Content-Type for /.well-known/api-catalog (must be application/linkset+json)
     if (url.pathname === '/.well-known/api-catalog' && response.ok) {
@@ -124,8 +130,6 @@ export default {
       return new Response(response.body, { status: response.status, headers })
     }
 
-    const accept = request.headers.get('Accept') ?? ''
-    const wantsMarkdown = accept.includes('text/markdown')
     const isHtml = (response.headers.get('Content-Type') ?? '').includes('text/html')
     const isHomepage = url.pathname === '/' || url.pathname === '/index.html'
 
