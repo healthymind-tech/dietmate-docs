@@ -2,6 +2,7 @@ import './globals.css'
 import DocsSidebar, { type NavCategory } from '../components/DocsSidebar'
 import DocsTopbar from '../components/DocsTopbar'
 import SearchModal from '../components/SearchModal'
+import WebMCPProvider from '../components/WebMCPProvider'
 import type { ReactNode } from 'react'
 
 export const metadata = {
@@ -14,17 +15,19 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 
   const categories: NavCategory[] = []
   let currentCategory: NavCategory | null = null
+  let currentSection = 'docs'
 
   for (const [key, value] of Object.entries(meta)) {
     if (typeof value === 'object' && value.type === 'separator') {
-      currentCategory = { title: value.title, items: [] }
+      if (value.title === '更新日誌') currentSection = 'changelog'
+      currentCategory = { title: value.title, items: [], section: currentSection }
       categories.push(currentCategory)
       continue
     }
     if (key === 'index') continue
     if (typeof value === 'string') {
       if (!currentCategory) {
-        currentCategory = { title: '文件', items: [] }
+        currentCategory = { title: '文件', items: [], section: currentSection }
         categories.push(currentCategory)
       }
       currentCategory.items.push({
@@ -47,6 +50,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             </main>
           </div>
           <SearchModal />
+          <WebMCPProvider />
         </div>
       </body>
     </html>

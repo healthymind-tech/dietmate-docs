@@ -1,0 +1,15 @@
+{
+  "serverInfo": {
+    "name": "dietmate-docs",
+    "version": "1.0.0",
+    "description": "DietMate documentation MCP server"
+  },
+  "transport": {
+    "endpoint": "https://docs.dietmate.studio/mcp"
+  },
+  "capabilities": {
+    "resources": true,
+    "tools": false,
+    "prompts": false
+  }
+}

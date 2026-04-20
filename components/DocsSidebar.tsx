@@ -36,6 +36,7 @@ export interface NavItem {
 export interface NavCategory {
   title: string
   items: NavItem[]
+  section: string
 }
 
 interface DocsSidebarProps {
@@ -46,11 +47,16 @@ export default function DocsSidebar({ categories }: DocsSidebarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const pathname = usePathname()
 
+  const isChangelog = pathname.startsWith('/changelog')
+  const visibleCategories = categories.filter(cat =>
+    isChangelog ? cat.section === 'changelog' : cat.section === 'docs'
+  )
+
   const sidebarContent = (
     <div className="flex flex-col h-full bg-white">
       {/* Navigation */}
       <nav className="flex-1 overflow-y-auto p-3 pt-4">
-        {categories.map((cat) => (
+        {visibleCategories.map((cat) => (
           <div key={cat.title} className="mb-4">
             <p className="px-3 text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
               {cat.title}

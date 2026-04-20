@@ -1,0 +1,19 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://docs.dietmate.studio/",
+      "service-doc": [
+        { "href": "https://docs.dietmate.studio/" }
+      ]
+    },
+    {
+      "anchor": "https://docs.dietmate.studio/api/feedback",
+      "service-doc": [
+        { "href": "https://docs.dietmate.studio/" }
+      ],
+      "type": [
+        { "value": "application/json" }
+      ]
+    }
+  ]
+}

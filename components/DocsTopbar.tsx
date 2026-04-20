@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 
 const NAV_TABS = [
   { label: 'DietMate 教學文件', href: '/' },
-  // 未來可在這裡新增更多 tab
+  { label: '更新日誌', href: '/changelog' },
 ]
 
 export default function DocsTopbar() {
@@ -54,7 +54,9 @@ export default function DocsTopbar() {
       {/* Row 2: Section tabs */}
       <nav className="px-5 flex items-end gap-1">
         {NAV_TABS.map((tab) => {
-          const isActive = tab.href === '/' ? true : pathname.startsWith(tab.href)
+          const isActive = tab.href === '/'
+            ? !NAV_TABS.filter(t => t.href !== '/').some(t => pathname.startsWith(t.href))
+            : pathname.startsWith(tab.href)
           return (
             <Link
               key={tab.href}

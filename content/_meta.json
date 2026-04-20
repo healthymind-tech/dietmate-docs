@@ -16,5 +16,7 @@
   "settings": "個人設定",
   "-- 報表匯出": { "type": "separator", "title": "報表匯出" },
   "weekly-report-export": "飲食分析週報",
-  "health-data-export": "健康數據匯出"
+  "health-data-export": "健康數據匯出",
+  "-- 更新日誌": { "type": "separator", "title": "更新日誌" },
+  "changelog": "更新日誌"
 }
