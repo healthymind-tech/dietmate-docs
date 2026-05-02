@@ -7,6 +7,9 @@ import type { ReactNode } from 'react'
 
 export const metadata = {
   metadataBase: new URL('https://docs.dietmate.studio'),
+  verification: {
+    google: '3_NMi14lo74HnpzgXYaV75Xig-WpFfTqlhIQdBPxMQ0',
+  },
 }
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
