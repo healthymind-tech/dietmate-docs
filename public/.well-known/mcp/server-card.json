@@ -5,7 +5,7 @@
     "description": "DietMate documentation MCP server"
   },
   "transport": {
-    "endpoint": "https://docs.dietmate.studio/mcp"
+    "endpoint": "https://help.healthymind-tech.com/mcp"
   },
   "capabilities": {
     "resources": true,

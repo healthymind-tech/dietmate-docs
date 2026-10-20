@@ -1,15 +1,15 @@
 {
   "linkset": [
     {
-      "anchor": "https://docs.dietmate.studio/",
+      "anchor": "https://help.healthymind-tech.com/",
       "service-doc": [
-        { "href": "https://docs.dietmate.studio/" }
+        { "href": "https://help.healthymind-tech.com/" }
       ]
     },
     {
-      "anchor": "https://docs.dietmate.studio/api/feedback",
+      "anchor": "https://help.healthymind-tech.com/api/feedback",
       "service-doc": [
-        { "href": "https://docs.dietmate.studio/" }
+        { "href": "https://help.healthymind-tech.com/" }
       ],
       "type": [
         { "value": "application/json" }

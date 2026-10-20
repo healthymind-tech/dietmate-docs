@@ -6,7 +6,7 @@ import WebMCPProvider from '../components/WebMCPProvider'
 import type { ReactNode } from 'react'
 
 export const metadata = {
-  metadataBase: new URL('https://docs.dietmate.studio'),
+  metadataBase: new URL('https://help.healthymind-tech.com'),
   verification: {
     google: '3_NMi14lo74HnpzgXYaV75Xig-WpFfTqlhIQdBPxMQ0',
   },

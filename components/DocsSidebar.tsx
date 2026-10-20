@@ -91,7 +91,7 @@ export default function DocsSidebar({ categories }: DocsSidebarProps) {
       {/* Footer */}
       <div className="p-3 border-t border-slate-100">
         <a
-          href="https://dietmate.studio"
+          href="https://www.healthymind-tech.com/dietmate"
           className="w-full flex justify-start px-3 py-2 text-sm text-slate-500 hover:text-slate-700 transition-colors"
         >
           回到 DietMate

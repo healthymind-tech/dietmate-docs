@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 
 export const dynamic = 'force-static'
 
-const baseUrl = 'https://docs.dietmate.studio'
+const baseUrl = 'https://help.healthymind-tech.com'
 
 const pages = [
   '',
