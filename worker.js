@@ -157,7 +157,7 @@ const accept = request.headers.get('Accept') ?? ''
     if (isHomepage && response.ok) {
       const headers = new Headers(response.headers)
       headers.append('Link', '</sitemap.xml>; rel="sitemap"')
-      headers.append('Link', '<https://docs.dietmate.studio/>; rel="service-doc"')
+      headers.append('Link', '<https://help.healthymind-tech.com/>; rel="service-doc"')
       headers.append('Link', '</.well-known/api-catalog>; rel="api-catalog"')
       return new Response(response.body, { status: response.status, headers })
     }

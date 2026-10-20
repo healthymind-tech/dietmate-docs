@@ -12,3 +12,8 @@ run_worker_first = true
 binding = "DB"
 database_name = "dietmate-feedback"
 database_id = "9bffc039-6040-4fa7-bd01-c3bf79e3d8c7"
+
+# docs.dietmate.studio 網域已停用，改掛在官網子網域
+[[routes]]
+pattern = "help.healthymind-tech.com"
+custom_domain = true
